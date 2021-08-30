@@ -21,7 +21,6 @@ public class MainTask extends Thread {
 	private MainTask(int threadCount, String filePath) {
 		this.threadCount = threadCount;
 		this.filePath = filePath;
-
 	}
 
 	public static MainTask newInstance(int threadCount, String filePath) {
@@ -64,8 +63,7 @@ public class MainTask extends Thread {
 	 */
 	private List<String> readFile(String filePath) throws IOException {
 		String content = new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
-		List<String> sentences = getSentences(content);
-		return sentences;
+		return getSentences(content);
 	}
 
 	/**
@@ -80,6 +78,9 @@ public class MainTask extends Thread {
 		return sentenceList;
 	}
 
+	/**
+	 * to print result
+	 */
 	private void printResult() {
 		System.out.println(" Sentence Count :" + Application.helper.getSentenceCount());
 		System.out.println(" Avg. Word Count :" + Application.helper.getAvarageWordCount());
