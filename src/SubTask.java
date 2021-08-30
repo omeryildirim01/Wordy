@@ -17,6 +17,7 @@ public class SubTask implements Runnable {
 	}
 
 	private void processGivenSentence() {
+		if(sentence == null) return;
 		String[] wordArray = sentence.split(" ");
 		for (int i = 0; i < wordArray.length; i++) {
 			Application.helper.setWordValue(wordArray[i]);
