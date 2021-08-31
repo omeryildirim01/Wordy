@@ -48,9 +48,9 @@ public class MainTask extends Thread {
 	private void executeTask(List<String> dataList) {
 		try {
 			ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
-			for (int i = 0; i < dataList.size(); i++) {
-				executorService.submit(new SubTask(dataList.get(i)));
-			}
+			dataList.forEach((item)-> {
+				executorService.submit(new SubTask(item));
+			});
 			executorService.shutdown();
 			executorService.awaitTermination(1, TimeUnit.HOURS);
 		} catch (InterruptedException e) {
