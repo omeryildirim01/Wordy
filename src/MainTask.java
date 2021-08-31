@@ -48,7 +48,7 @@ public class MainTask extends Thread {
 	private void executeTask(List<String> dataList) {
 		try {
 			ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
-			dataList.forEach((item)-> {
+			dataList.forEach((item) -> {
 				executorService.submit(new SubTask(item));
 			});
 			executorService.shutdown();
